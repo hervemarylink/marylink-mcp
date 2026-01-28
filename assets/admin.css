@@ -1,0 +1,275 @@
+/**
+ * MCP No Headless - Admin Styles
+ */
+
+.mcpnh-admin {
+    max-width: 1200px;
+}
+
+/* Cards */
+.mcpnh-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.mcpnh-card h2,
+.mcpnh-card h3 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.mcpnh-card-error {
+    border-left: 4px solid #dc3232;
+}
+
+/* Health Status */
+.mcpnh-health {
+    padding: 20px;
+}
+
+.mcpnh-health h2 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mcpnh-health-ok {
+    background: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.mcpnh-health-ok h2 {
+    color: #155724;
+}
+
+.mcpnh-health-error {
+    background: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.mcpnh-health-error h2 {
+    color: #721c24;
+}
+
+.mcpnh-timestamp {
+    margin: 10px 0 0;
+    color: #666;
+    font-size: 13px;
+}
+
+.mcpnh-latency {
+    color: #888;
+}
+
+/* Grid Layout */
+.mcpnh-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.mcpnh-grid .mcpnh-card {
+    margin-bottom: 0;
+}
+
+/* Tables */
+.mcpnh-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.mcpnh-table td {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mcpnh-table td:last-child {
+    text-align: right;
+}
+
+.mcpnh-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badges */
+.mcpnh-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.mcpnh-badge-ok,
+.mcpnh-badge-success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.mcpnh-badge-warn {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.mcpnh-badge-error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.mcpnh-badge-denied {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
+.mcpnh-badge-rate_limited {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.mcpnh-small {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Progress Bar */
+.mcpnh-progress {
+    display: inline-block;
+    width: 100px;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.mcpnh-progress-bar {
+    display: block;
+    height: 100%;
+    background: #007bff;
+    border-radius: 4px;
+}
+
+/* Stats Grid */
+.mcpnh-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.mcpnh-stat-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+}
+
+.mcpnh-stat-value {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1d2327;
+    line-height: 1.2;
+}
+
+.mcpnh-stat-label {
+    font-size: 13px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Audit Table */
+.mcpnh-audit-table code {
+    background: #f0f0f1;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.mcpnh-debug-id {
+    font-size: 11px;
+    word-break: break-all;
+}
+
+.mcpnh-log-error {
+    background-color: #fff5f5;
+}
+
+.mcpnh-log-denied {
+    background-color: #fffbeb;
+}
+
+.mcpnh-log-rate_limited {
+    background-color: #f0f9ff;
+}
+
+/* Filters */
+.mcpnh-filters {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.mcpnh-filters label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.mcpnh-filters input[type="number"],
+.mcpnh-filters input[type="text"] {
+    width: 120px;
+}
+
+/* Warning */
+.mcpnh-warning {
+    color: #856404;
+    background: #fff3cd;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Action Results */
+#mcpnh-action-result {
+    margin-top: 15px;
+}
+
+#mcpnh-action-result .notice {
+    margin: 0;
+}
+
+/* Buttons */
+.mcpnh-admin .button {
+    margin-right: 5px;
+}
+
+/* Loading state */
+.mcpnh-loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .mcpnh-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mcpnh-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mcpnh-filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

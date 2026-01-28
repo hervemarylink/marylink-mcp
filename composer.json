@@ -1,0 +1,30 @@
+{
+    "name": "marylink/mcp-no-headless",
+    "description": "MCP Server for WordPress - No Headless Mode",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "MCP_No_Headless\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MCP_No_Headless\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:unit": "phpunit --testsuite Unit",
+        "test:integration": "phpunit --testsuite Integration"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
