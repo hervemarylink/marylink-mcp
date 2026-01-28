@@ -370,7 +370,6 @@ DESC,
 ■ NE PAS UTILISER SI : Le résultat d'un ml_run doit être sauvé (utiliser save_to dans ml_run).
 
 Crée ou modifie une publication. Si id fourni = modification.
-Option image_prompt : génére automatiquement une image illustrative (IA) et l'attache comme image mise en avant.
 DESC,
             'inputSchema' => [
                 'type' => 'object',
@@ -412,10 +411,6 @@ DESC,
                         'description' => 'Labels à appliquer',
                     ],
                 ],
-                'image_prompt' => [
-                        'type' => 'string',
-                        'description' => 'Prompt pour générer automatiquement une image (via IA) et l\'attacher comme image mise en avant.',
-                    ],
                 'required' => ['content'],
             ],
             'annotations' => ['readOnlyHint' => false, 'destructiveHint' => false],
