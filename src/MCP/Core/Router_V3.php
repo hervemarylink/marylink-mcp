@@ -17,6 +17,7 @@ use MCP_No_Headless\MCP\Core\Tools\Find;
 use MCP_No_Headless\MCP\Core\Tools\Me;
 use MCP_No_Headless\MCP\Core\Tools\Save;
 use MCP_No_Headless\MCP\Core\Tools\Run;
+use MCP_No_Headless\MCP\Core\Tools\Image;
 use MCP_No_Headless\MCP\Core\Tools\Assist;
 use MCP_No_Headless\MCP\Core\Services\Migration_Service;
 
