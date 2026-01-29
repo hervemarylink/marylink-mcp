@@ -374,6 +374,7 @@ class Save {
                 'tags' => wp_get_post_terms($post_id, \MCP_No_Headless\Schema\Publication_Schema::TAX_TAG, ['fields' => 'names']),
                 'activity_id' => $activity_id,
                 'url' => get_permalink($post_id),
+                'step' => Publication_Schema::get_step($post_id),
                 'created_at' => current_time('c'),
             ],
         ];
@@ -545,6 +546,14 @@ class Save {
             }
             if (!empty($valid_tags)) {
                 wp_set_post_terms($post_id, $valid_tags, \MCP_No_Headless\Schema\Publication_Schema::TAX_TAG);
+            }
+        }
+
+        // Default workflow step: submit (soumis pour validation)
+        if (class_exists(Publication_Schema::class)) {
+            $current_step = Publication_Schema::get_step($post_id);
+            if (empty($current_step)) {
+                Publication_Schema::set_step($post_id, 'submit');
             }
         }
 
