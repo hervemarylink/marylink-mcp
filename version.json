@@ -1,214 +1,239 @@
 {
-  "name": "marylink-mcp",
-  "display_name": "MaryLink MCP",
-  "version": "3.2.29",
-  "build": "20260128 +personal-space+labels+excerpt",
-  "previous_names": [
-    "mcp-wizard",
-    "mcp-no-headless"
-  ],
-  "features": [
-    "V3 Core Architecture - 6 unified tools",
-    "Router_V3 with rate limiting",
-    "Tool_Catalog_V3 with strate system",
-    "Permission_Service centralized",
-    "Entity_Detector + Business_Context auto-injection",
-    "Job_Manager for async operations"
-  ],
-  "changelog": {
-    "3.1.3": {
-      "date": "2026-01-25",
-      "changes": [
-        "FIX: Rate_Limiter::get_user_status() added for ml_me quotas",
-        "FIX: Job_Manager::get_user_jobs() signature corrected",
-        "FIX: Save.php TYPE_DATA removed, publication type normalized",
-        "FIX: Save.php uses correct taxonomy (publication_tag)",
-        "FIX: Assist.php action=apply mapped to execute",
-        "FIX: Assist.php searches prompts (label=prompt) not just tools"
-      ]
+    "name": "marylink-mcp",
+    "display_name": "MaryLink MCP",
+    "version": "3.2.32",
+    "build": "20260129 +dynamic-steps+user-override+picasso-defaults",
+    "previous_names": [
+        "mcp-wizard",
+        "mcp-no-headless"
+    ],
+    "features": [
+        "V3 Core Architecture - 6 unified tools",
+        "Router_V3 with rate limiting",
+        "Tool_Catalog_V3 with strate system",
+        "Permission_Service centralized",
+        "Entity_Detector + Business_Context auto-injection",
+        "Job_Manager for async operations"
+    ],
+    "changelog": {
+        "3.1.3": {
+            "date": "2026-01-25",
+            "changes": [
+                "FIX: Rate_Limiter::get_user_status() added for ml_me quotas",
+                "FIX: Job_Manager::get_user_jobs() signature corrected",
+                "FIX: Save.php TYPE_DATA removed, publication type normalized",
+                "FIX: Save.php uses correct taxonomy (publication_tag)",
+                "FIX: Assist.php action=apply mapped to execute",
+                "FIX: Assist.php searches prompts (label=prompt) not just tools"
+            ]
+        },
+        "3.1.2": {
+            "date": "2026-01-25",
+            "changes": [
+                "FIX: Find.php search_spaces() signature (6 params instead of 2)",
+                "FIX: Find.php format_space_post() added for CPT space formatting",
+                "FIX: Permission_Service is_space_member() now public static"
+            ]
+        },
+        "3.1.1": {
+            "date": "2026-01-25",
+            "changes": [
+                "NEW: Dual-mode Space support (CPT space first, BuddyBoss group fallback)",
+                "FIX: Permission_Service can_post_to_space() for CPT spaces",
+                "FIX: Entity_Detector detects CPT spaces",
+                "FIX: Business_Context_Service reads CPT spaces"
+            ]
+        },
+        "3.1.0": {
+            "date": "2025-01-25",
+            "changes": [
+                "NEW: ml_save accepts 'id' as alias for 'publication_id'",
+                "NEW: ml_save supports 'status' parameter (draft\/publish)",
+                "NEW: ml_save supports 'labels[]' parameter for taxonomy",
+                "NEW: ml_save uses Publication_Schema::set_space_id() for Picasso model",
+                "NEW: ml_save allows UPDATE without title\/content (status-only changes)",
+                "FIX: ml_find uses post_parent for space filtering (Picasso model)",
+                "FIX: Migration_Service type defaults to null instead of 'any'"
+            ]
+        },
+        "3.0.0": {
+            "date": "2025-01-23",
+            "changes": [
+                "BREAKING: V3 architecture - only 6 Core tools exposed",
+                "NEW: ml_ping, ml_find, ml_me, ml_save, ml_run, ml_assist",
+                "NEW: Tool_Catalog_V3 replaces Tool_Catalog",
+                "NEW: Router_V3 with centralized routing",
+                "NEW: Tool_Response (Core) for standardized responses",
+                "NEW: Permission_Service for centralized permissions",
+                "REMOVED: 54 legacy V2 tools",
+                "REMOVED: AI Engine Pro tools overlay"
+            ]
+        },
+        "3.2.14": {
+            "date": "2026-01-27",
+            "changes": [
+                "FIX: MCP_Controller uses Tool_Catalog_V3 for tools\/list (V3 tools exposed)",
+                "FIX: Sites without AI Engine Pro now get V3 tools correctly"
+            ]
+        },
+        "3.2.15": {
+            "date": "2026-01-27",
+            "changes": [
+                "FIX: Permission_Checker guards against invalid user_id for Picasso Backend",
+                "FIX: PHP 8.x strict typing compatibility with Picasso_BackendPermissionUser"
+            ]
+        },
+        "3.2.16": {
+            "date": "2026-01-27",
+            "changes": [
+                "NEW: Picasso\/Meta_Keys.php centralized class for Picasso meta keys",
+                "REFACTOR: Publication_Service uses Meta_Keys for rating\/favorites\/votes",
+                "REFACTOR: Find_Ranking uses Meta_Keys for likes\/ratings",
+                "REFACTOR: Publication_Schema uses Meta_Keys for quality metrics",
+                "REFACTOR: Bestof_Service uses Meta_Keys for sorting",
+                "REFACTOR: Help_Tool, Find.php, Picasso_Tools use Meta_Keys",
+                "COMPAT: Full Picasso Backend meta key compatibility"
+            ]
+        },
+        "3.2.17": {
+            "date": "2026-01-27",
+            "changes": [
+                "FIX: get_reviews_sample now reads from Picasso CPT publication_review",
+                "NEW: reviews_sample returns actual review text from Picasso",
+                "NEW: review_type field (user\/expert) included in reviews"
+            ]
+        },
+        "3.2.18": {
+            "date": "2026-01-27",
+            "changes": [
+                "FIX: Find.php reads views from Picasso _publication_view",
+                "FIX: Auto_Improve_Service uses Meta_Keys::get_views_count()",
+                "FIX: Scoring_Service uses Picasso _publication_view key"
+            ]
+        },
+        "3.2.19": {
+            "date": "2026-01-27",
+            "changes": [
+                "FIX: get_views_count counts meta entries (Picasso stores user_ids)",
+                "Views now correctly return unique viewer count instead of first user_id"
+            ]
+        },
+        "3.2.20": {
+            "date": "2026-01-27",
+            "changes": [
+                "NEW: ml_find returns labels[] and tags[] for publications",
+                "Labels from publication_label taxonomy",
+                "Tags from publication_tag taxonomy"
+            ]
+        },
+        "3.2.21": {
+            "date": "2026-01-27",
+            "changes": [
+                "FIX: ml_me spaces returns all spaces for administrators",
+                "Admins (manage_options) bypass space membership check"
+            ]
+        },
+        "3.2.22": {
+            "date": "2026-01-27",
+            "changes": [
+                "DOC: ml_assist description enrichie avec mécanique action=create",
+                "Guide complet: contenus → style → outil avec URLs",
+                "Mise en forme Markdown (gras, emojis, code blocks)"
+            ]
+        },
+        "3.2.23": {
+            "date": "2026-01-27",
+            "changes": [
+                "FIX: Job_Manager::get_status() missing user_id parameter",
+                "NEW: ml_assist action=labels returns available labels and tags",
+                "Labels include: id, name, slug, count"
+            ]
+        },
+        "3.2.24": {
+            "date": "2026-01-27",
+            "changes": [
+                "FIX: ml_ping now returns correct version from MLMCP_VERSION constant",
+                "Version sync: Ping.php uses global constant instead of hardcoded value"
+            ]
+        },
+        "3.2.25": {
+            "date": "2026-01-27",
+            "changes": [
+                "NEW: ml_run mode=delegate - returns assembled prompt for Claude native execution",
+                "No external API call - Claude processes prompt directly",
+                "assembly metadata includes tool_id, title, linked contents\/styles",
+                "instructions field guides Claude on execution"
+            ]
+        },
+        "3.2.26": {
+            "date": "2026-01-27",
+            "changes": [
+                "FIX: get_reviews_sample fallback uses post_id (not publication_id)",
+                "Fixes SQL error on sites with ml_ratings table"
+            ]
+        },
+        "3.2.27": {
+            "date": "2026-01-27",
+            "changes": [
+                "NEW: ml_save validates tags exist in DB before saving",
+                "Prevents LLM from creating unknown tags",
+                "Returns clear error with invalid_tags list and suggestion"
+            ]
+        },
+        "3.2.28": {
+            "date": "2026-01-28",
+            "changes": [
+                "NEW: Tag whitelist (act-*, fct-*, ao-*, tuto)",
+                "Tags must match prefix AND exist in DB",
+                "Clear error message for invalid tags"
+            ]
+        },
+        "3.2.29": {
+            "date": "2026-01-28",
+            "changes": [
+                "NEW: Default to user personal space (ml_default_space) if no space_id",
+                "NEW: Label required for CREATE mode (type or labels[])",
+                "NEW: Auto-generate post_excerpt from content"
+            ]
+        },
+        "3.2.30": {
+            "date": "2026-01-28",
+            "changes": [
+                "FIX: MCP user override (user 93 instead of 135)",
+                "FIX: Default status pending instead of publish",
+                "FIX: Label type renamed contenu"
+            ]
+        },
+        "3.2.31": {
+            "date": "2026-01-28",
+            "changes": [
+                "FIX: User override via rest_pre_dispatch filter (replaces mwai_allow_mcp)",
+                "FIX: Default workflow step=submit on ml_save create"
+            ]
+        },
+        "3.2.32": {
+            "date": "2026-01-29",
+            "changes": [
+                "FIX: Initialize Picasso default meta fields on ml_save create",
+                "FIX: Picasso_Adapter reads _space_steps (canonical) instead of _ml_workflow_steps",
+                "NEW: Picasso_Adapter::get_first_step_slug() for dynamic step resolution",
+                "FIX: Save.php assigns first step from space dynamically (fallback submit)",
+                "DB: Backfilled _publication_step for existing publications"
+            ]
+        }
     },
-    "3.1.2": {
-      "date": "2026-01-25",
-      "changes": [
-        "FIX: Find.php search_spaces() signature (6 params instead of 2)",
-        "FIX: Find.php format_space_post() added for CPT space formatting",
-        "FIX: Permission_Service is_space_member() now public static"
-      ]
+    "tool_counts": {
+        "core": 6,
+        "packs": 0,
+        "custom": 0,
+        "total": 6
     },
-    "3.1.1": {
-      "date": "2026-01-25",
-      "changes": [
-        "NEW: Dual-mode Space support (CPT space first, BuddyBoss group fallback)",
-        "FIX: Permission_Service can_post_to_space() for CPT spaces",
-        "FIX: Entity_Detector detects CPT spaces",
-        "FIX: Business_Context_Service reads CPT spaces"
-      ]
-    },
-    "3.1.0": {
-      "date": "2025-01-25",
-      "changes": [
-        "NEW: ml_save accepts 'id' as alias for 'publication_id'",
-        "NEW: ml_save supports 'status' parameter (draft/publish)",
-        "NEW: ml_save supports 'labels[]' parameter for taxonomy",
-        "NEW: ml_save uses Publication_Schema::set_space_id() for Picasso model",
-        "NEW: ml_save allows UPDATE without title/content (status-only changes)",
-        "FIX: ml_find uses post_parent for space filtering (Picasso model)",
-        "FIX: Migration_Service type defaults to null instead of 'any'"
-      ]
-    },
-    "3.0.0": {
-      "date": "2025-01-23",
-      "changes": [
-        "BREAKING: V3 architecture - only 6 Core tools exposed",
-        "NEW: ml_ping, ml_find, ml_me, ml_save, ml_run, ml_assist",
-        "NEW: Tool_Catalog_V3 replaces Tool_Catalog",
-        "NEW: Router_V3 with centralized routing",
-        "NEW: Tool_Response (Core) for standardized responses",
-        "NEW: Permission_Service for centralized permissions",
-        "REMOVED: 54 legacy V2 tools",
-        "REMOVED: AI Engine Pro tools overlay"
-      ]
-    },
-    "3.2.14": {
-      "date": "2026-01-27",
-      "changes": [
-        "FIX: MCP_Controller uses Tool_Catalog_V3 for tools/list (V3 tools exposed)",
-        "FIX: Sites without AI Engine Pro now get V3 tools correctly"
-      ]
-    },
-    "3.2.15": {
-      "date": "2026-01-27",
-      "changes": [
-        "FIX: Permission_Checker guards against invalid user_id for Picasso Backend",
-        "FIX: PHP 8.x strict typing compatibility with Picasso_BackendPermissionUser"
-      ]
-    },
-    "3.2.16": {
-      "date": "2026-01-27",
-      "changes": [
-        "NEW: Picasso/Meta_Keys.php centralized class for Picasso meta keys",
-        "REFACTOR: Publication_Service uses Meta_Keys for rating/favorites/votes",
-        "REFACTOR: Find_Ranking uses Meta_Keys for likes/ratings",
-        "REFACTOR: Publication_Schema uses Meta_Keys for quality metrics",
-        "REFACTOR: Bestof_Service uses Meta_Keys for sorting",
-        "REFACTOR: Help_Tool, Find.php, Picasso_Tools use Meta_Keys",
-        "COMPAT: Full Picasso Backend meta key compatibility"
-      ]
-    },
-    "3.2.17": {
-      "date": "2026-01-27",
-      "changes": [
-        "FIX: get_reviews_sample now reads from Picasso CPT publication_review",
-        "NEW: reviews_sample returns actual review text from Picasso",
-        "NEW: review_type field (user/expert) included in reviews"
-      ]
-    },
-    "3.2.18": {
-      "date": "2026-01-27",
-      "changes": [
-        "FIX: Find.php reads views from Picasso _publication_view",
-        "FIX: Auto_Improve_Service uses Meta_Keys::get_views_count()",
-        "FIX: Scoring_Service uses Picasso _publication_view key"
-      ]
-    },
-    "3.2.19": {
-      "date": "2026-01-27",
-      "changes": [
-        "FIX: get_views_count counts meta entries (Picasso stores user_ids)",
-        "Views now correctly return unique viewer count instead of first user_id"
-      ]
-    },
-    "3.2.20": {
-      "date": "2026-01-27",
-      "changes": [
-        "NEW: ml_find returns labels[] and tags[] for publications",
-        "Labels from publication_label taxonomy",
-        "Tags from publication_tag taxonomy"
-      ]
-    },
-    "3.2.21": {
-      "date": "2026-01-27",
-      "changes": [
-        "FIX: ml_me spaces returns all spaces for administrators",
-        "Admins (manage_options) bypass space membership check"
-      ]
-    },
-    "3.2.22": {
-      "date": "2026-01-27",
-      "changes": [
-        "DOC: ml_assist description enrichie avec mécanique action=create",
-        "Guide complet: contenus → style → outil avec URLs",
-        "Mise en forme Markdown (gras, emojis, code blocks)"
-      ]
-    },
-    "3.2.23": {
-      "date": "2026-01-27",
-      "changes": [
-        "FIX: Job_Manager::get_status() missing user_id parameter",
-        "NEW: ml_assist action=labels returns available labels and tags",
-        "Labels include: id, name, slug, count"
-      ]
-    },
-    "3.2.24": {
-      "date": "2026-01-27",
-      "changes": [
-        "FIX: ml_ping now returns correct version from MLMCP_VERSION constant",
-        "Version sync: Ping.php uses global constant instead of hardcoded value"
-      ]
-    },
-    "3.2.25": {
-      "date": "2026-01-27",
-      "changes": [
-        "NEW: ml_run mode=delegate - returns assembled prompt for Claude native execution",
-        "No external API call - Claude processes prompt directly",
-        "assembly metadata includes tool_id, title, linked contents/styles",
-        "instructions field guides Claude on execution"
-      ]
-    },
-    "3.2.26": {
-      "date": "2026-01-27",
-      "changes": [
-        "FIX: get_reviews_sample fallback uses post_id (not publication_id)",
-        "Fixes SQL error on sites with ml_ratings table"
-      ]
-    },
-    "3.2.27": {
-      "date": "2026-01-27",
-      "changes": [
-        "NEW: ml_save validates tags exist in DB before saving",
-        "Prevents LLM from creating unknown tags",
-        "Returns clear error with invalid_tags list and suggestion"
-      ]
-    },
-    "3.2.28": {
-      "date": "2026-01-28",
-      "changes": [
-        "NEW: Tag whitelist (act-*, fct-*, ao-*, tuto)",
-        "Tags must match prefix AND exist in DB",
-        "Clear error message for invalid tags"
-      ]
-    },
-    "3.2.29": {
-      "date": "2026-01-28",
-      "changes": [
-        "NEW: Default to user personal space (ml_default_space) if no space_id",
-        "NEW: Label required for CREATE mode (type or labels[])",
-        "NEW: Auto-generate post_excerpt from content"
-      ]
-    }
-  },
-  "tool_counts": {
-    "core": 6,
-    "packs": 0,
-    "custom": 0,
-    "total": 6
-  },
-  "v3_tools": [
-    "ml_ping",
-    "ml_find",
-    "ml_me",
-    "ml_save",
-    "ml_run",
-    "ml_assist"
-  ]
+    "v3_tools": [
+        "ml_ping",
+        "ml_find",
+        "ml_me",
+        "ml_save",
+        "ml_run",
+        "ml_assist"
+    ]
 }

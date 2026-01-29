@@ -3,7 +3,7 @@
  * Plugin Name: MaryLink MCP
  * Plugin URI: https://marylink.io
  * Description: MCP Server pour WordPress. Expose les outils MaryLink via REST API SSE pour Claude et autres clients MCP.
- * Version:           3.2.29
+ * Version:           3.2.32
  * Author: MaryLink
  * Author URI: https://marylink.io
  * Text Domain: marylink-mcp
