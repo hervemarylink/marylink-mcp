@@ -549,6 +549,28 @@ class Save {
             }
         }
 
+        // Picasso default fields (match picasso-backend-dev form submission defaults)
+        // Only initialize on new publications (when meta does not exist yet)
+        $picasso_defaults = [
+            '_publication_co_authors'    => [],      // empty array
+            '_banner_image'              => 0,       // no banner
+            '_publication_images'        => [],      // empty array
+            '_publication_videos'        => [],      // empty array
+            '_publication_docs'          => [],      // empty array
+            '_publication_youtube_video' => '',      // empty string
+        ];
+        foreach ($picasso_defaults as $meta_key => $default_value) {
+            if (metadata_exists('post', $post_id, $meta_key) === false) {
+                update_post_meta($post_id, $meta_key, $default_value);
+            }
+        }
+
+        // _publication_label: store term_id in meta (Picasso quick-access pattern)
+        $label_terms = wp_get_post_terms($post_id, 'publication_label', ['fields' => 'ids']);
+        if (!is_wp_error($label_terms) && !empty($label_terms)) {
+            update_post_meta($post_id, '_publication_label', (int) $label_terms[0]);
+        }
+
         // Default workflow step: submit (soumis pour validation)
         if (class_exists(Publication_Schema::class)) {
             $current_step = Publication_Schema::get_step($post_id);
