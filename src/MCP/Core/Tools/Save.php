@@ -942,7 +942,7 @@ class Save {
 
         $post = get_post($publication_id);
         if (!$post || $post->post_type !== 'publication') {
-            return Tool_Response::not_found_error("publication #$publication_id introuvable");
+            return Tool_Response::not_found('publication', $publication_id);
         }
 
         $res = wp_trash_post($publication_id);
